@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import Select from 'react-select';
-
-
 
 // Sample states and cities data for dropdowns
 const states = [
@@ -73,7 +70,6 @@ function Signup() {
     email: '',
   });
 
-  // const [captchaVerified, setCaptchaVerified] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleChange = (e) => {
@@ -98,23 +94,8 @@ function Signup() {
     });
   };
 
-  // const handleCaptchaChange = (value) => {
-  //   if (value) {
-  //     setCaptchaVerified(true);
-  //   } else {
-  //     setCaptchaVerified(false);
-  //   }
-  //   console.log('Captcha value:', value); // Logging the captcha value
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // if (!captchaVerified) {
-    //   alert("Please verify the CAPTCHA.");
-    //   return;
-    // }
-
     // Form submission logic
     console.log('Form submitted:', formData);
   };
@@ -136,7 +117,7 @@ function Signup() {
       <form onSubmit={handleSubmit} style={styles.form}>
         {currentPage === 1 ? (
           <>
-            <h2>User Registration</h2> {/* Updated heading */}
+            <h2>User Registration</h2>
             <div style={styles.inputGroup}>
               <label>Full Name:</label>
               <input
@@ -181,20 +162,11 @@ function Signup() {
                 required
               />
             </div>
-            {/* <div style={styles.inputGroup}>
-              <label>Captcha:</label>
-              <ReCAPTCHA
-                sitekey="YOUR_SITE_KEY" // Replace with your actual site key
-                onChange={handleCaptchaChange}
-                required
-              />
-              <div style={styles.captchaComment}>Please verify that you are not a robot.</div>
-            </div> */}
             <button type="button" style={styles.navButton} onClick={handleNext}>Next</button>
           </>
         ) : (
           <>
-            <h2>User Profile</h2> {/* Updated heading */}
+            <h2>User Profile</h2>
             <div style={styles.inputGroup}>
               <label>Country:</label>
               <input
@@ -282,7 +254,7 @@ function Signup() {
               />
             </div>
             <button type="button" style={styles.navButton} onClick={handlePrevious}>Previous</button>
-            <button type="submit" style={styles.submitButton}>Login</button>
+            <button type="submit" style={styles.submitButton}>Submit</button>
           </>
         )}
       </form>
@@ -308,7 +280,6 @@ const styles = {
   inputGroup: {
     marginBottom: '15px',
   },
-  
   submitButton: {
     width: '100%',
     padding: '10px',
@@ -326,23 +297,8 @@ const styles = {
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
-    marginRight: '2%',
+    margin: '0 1%',
   },
-  captchaComment: {
-    marginTop: '10px',
-    fontSize: '12px',
-    color: '#555',
-  },
-};
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Form submission logic (e.g., API call, data validation, etc.)
-    console.log('Form submitted:', formData);
-
-    // Assuming signup logic is successful, call the onSignup function
-    onSignup();  // This will notify the parent component that signup was successful
 };
 
 export default Signup;
