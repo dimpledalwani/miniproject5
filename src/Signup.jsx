@@ -335,4 +335,14 @@ const styles = {
   },
 };
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Form submission logic (e.g., API call, data validation, etc.)
+    console.log('Form submitted:', formData);
+
+    // Assuming signup logic is successful, call the onSignup function
+    onSignup();  // This will notify the parent component that signup was successful
+};
+
 export default Signup;

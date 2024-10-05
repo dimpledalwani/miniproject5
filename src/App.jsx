@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthPages from './AuthPages'; 
 
+
 function App() {
   return (
     <div>
